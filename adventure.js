@@ -22,17 +22,23 @@ class Hero{
         announceHealth(){
                return this.health
                 }
-        fight(){
-            console.log('I\'m ready to rumble')
-        }
+        fight(enemy){
+        const arr=Object.values(this.weapons)
+        const random = arr[Math.floor(Math.random()*arr.length)];
+              if (enemy===this.name) {
+                
+                return this.announceHealth -=random
+              }
+                 
+                 
+                      
+            }
 }
 
 const dougie=new Hero ('Doughie the Donut');
-console.log(dougie.announceHealth())
-console.log(dougie.talkSass())
-// console.log(dougie.weapons[0])
-console.log(dougie.sugarShock)
-console.log(dougie.weapons.sprinkleSpray)
+
+
+
 
 
 
@@ -54,11 +60,31 @@ class Enemy{
         return this.catchPhrashes[Math.floor(Math.random()* this.catchPhrashes.length)];
 
       }
-      fight(){
-          console.log('i\'m gonna flatten you like a slice of pepperoni!')
+      announceHealth(){
+          return this.health
       }
+      fight(enemy){
+        const arr=Object.keys(this.weapons)
+     const random = arr[Math.floor(Math.random()*arr.length)];
+     
+    if (enemy===this.name) {
+      
+      return dougie.announceHealth-=random;
+    }
+       
+       
+            
+       }
 }
 
 
 const pizza_Rat=new Enemy('Pizza Rat');
+console.log(dougie.talkSass())
 console.log(pizza_Rat.talkSmack())
+console.log(dougie.announceHealth())
+console.log(pizza_Rat.announceHealth())
+
+
+// console.log(dougie.fight(pizza_Rat)[0])
+// console.log(dougie.fight(pizza_Rat))
+console.log(pizza_Rat.fight(dougie))

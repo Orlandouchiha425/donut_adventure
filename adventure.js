@@ -8,14 +8,14 @@ class Hero{
         this.sugarShock=10;
         this.catchPhrashes=['i\'m fresher than day old pizza',
         'you can\'t count my calories'];
-
+        this.weapons={
+          sprinkleSpray: 5,
+          sugarShock: 10,
+                  }
         
         }
      
-        weapons={
-            sprinkleSpray: 5,
-            sugarShock: 10,
-          }
+       
         talkSass(){
             return this.catchPhrashes[Math.floor(Math.random()* this.catchPhrashes.length)];
              }
@@ -25,9 +25,11 @@ class Hero{
         fight(enemy){
         const arr=Object.values(this.weapons)
         const random = arr[Math.floor(Math.random()*arr.length)];
-              if (enemy===this.name) {
+       
+              if (enemy===pizza_Rat) {
                 
-                return this.announceHealth -=random
+                 return pizza_Rat.announceHealth -=random;
+                
               }
                  
                  
@@ -64,12 +66,13 @@ class Enemy{
           return this.health
       }
       fight(enemy){
-        const arr=Object.keys(this.weapons)
+        const arr=Object.values(this.weapons)
      const random = arr[Math.floor(Math.random()*arr.length)];
-     
-    if (enemy===this.name) {
+  
+    if (enemy===dougie) {
       
-      return dougie.announceHealth-=random;
+       return dougie.announceHealth =-random;
+       
     }
        
        
@@ -84,7 +87,20 @@ console.log(pizza_Rat.talkSmack())
 console.log(dougie.announceHealth())
 console.log(pizza_Rat.announceHealth())
 
+console.log(dougie.fight(pizza_Rat))
+console.log(pizza_Rat.fight(dougie))
+
+//I was not able to get the fight method working, was not sure how to get the method from another class into the pizza rat and dougie class
+//I played with the idea of (see below)
+// class Enemy extends Hero{
+
+//   constructor(name){
+//   super(name);
+
+//but nothing seems to work not sure what im doing wrong please let me know, i do know if we create another instance of instance Hero they will work together 
+//such as our previous practice   https://replit.com/@Orlandouchiha42/Classes-Practice-W02-Day3#script.js  how arthur use the two instances from same class to "attack`"
 
 // console.log(dougie.fight(pizza_Rat)[0])
 // console.log(dougie.fight(pizza_Rat))
-console.log(pizza_Rat.fight(dougie))
+// console.log(pizza_Rat.fight(dougie))
+// console.log(pizza_Rat.fight(dougie))
